@@ -8,6 +8,11 @@ if has("gui_running")
   set go -=T  " no toolbar
   set go -=m  " no menu
   set go -=r  " no scrollbars
+  try
+    set guifont=Droid\ Sans\ Mono
+  catch
+  endtry
+
   if version >= 703
     set colorcolumn=80
   endif
