@@ -91,4 +91,6 @@ map <leader>d :bd<cr>
 map <leader>ca :1,300bd<cr>
 " }}}
 
+autocmd vimenter * if !argc() | NERDTree | endif
+
 " vim:fdm=marker:
