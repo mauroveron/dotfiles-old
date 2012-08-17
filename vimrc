@@ -21,7 +21,7 @@ endif
 " }}}
 
 " general editor options {{{
-let leader=','
+let mapleader=','
 set modeline
 set noswapfile
 
