@@ -85,4 +85,10 @@ set expandtab
 set completeopt=menuone,preview
 " }}}
 
+" helpful leader shortcuts {{{
+map <leader>q :q<cr>
+map <leader>d :bd<cr>
+map <leader>ca :1,300bd<cr>
+" }}}
+
 " vim:fdm=marker:
