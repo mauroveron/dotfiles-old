@@ -34,7 +34,8 @@ set pastetoggle=<F3>
 
 set hidden
 
-set foldmethod=indent
+set foldmethod=syntax
+set foldlevel=99
 set encoding=utf-8
 
 " search
@@ -94,8 +95,21 @@ set completeopt=menuone,preview
 map <leader>q :q<cr>
 map <leader>d :bd<cr>
 map <leader>ca :1,300bd<cr>
+
+map <leader>f :NERDTree<cr>
+map <leader><space> :noh<cr>
+map <leader>l :set list!<cr>
+"map <leader>t :TagbarToggle<cr>
 " }}}
 
-autocmd vimenter * if !argc() | NERDTree | endif
+" other mappings {{{
+" use Q to format paragraph
+vmap Q gq
+nmap Q gqap
+
+nmap <F2> :CommandTFlush<CR>
+" }}}
+
+"autocmd vimenter * if !argc() | NERDTree | endif
 
 " vim:fdm=marker:
