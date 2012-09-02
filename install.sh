@@ -1,6 +1,6 @@
 #!/bin/sh
 CWD=`pwd`
-REL_PATH=`dirname $0`
+REL_PATH=`dirname $0 | sed "s:$HOME/::"`
 
 if [ $REL_PATH == "." ] ; then
   DOTFILES="$CWD"
