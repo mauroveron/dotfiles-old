@@ -1,0 +1,41 @@
+term "xterm-256color"
+encoding UTF-8
+
+# fix residual editor text
+altscreen on
+
+autodetach on # Autodetach session on hangup instead of terminating screen completely
+
+startup_message off # Turn off the splash screen
+
+defscrollback 30000 # Use a 30000-line scrollback buffer
+defutf8 on
+
+termcapinfo xterm ti@:te@
+
+# visable bell
+vbell_msg "beep"
+
+# Set status line in window title, preview:
+# ( rsk )         0$ top  3-$ watch  (4*$ bash)        ( load: 0,01 0,01 0,00 ) (14:59 PM - 2009-02-10)
+#hardstatus alwayslastline "%{yk}( %{Y}%H %{y})%=  %{wk}%?%-Lw%?%{R}(%{W}%n*%f %t%?(%u)%?%{R})%{w}%?%+Lw%?%?%= %{y}( %{Y}load: %l %{y}) (%C %A - %Y-%m-%d)"
+#caption string "%?%F%{= Bk}%? %C%A %D %d-%m-%Y %{= kB} %t%= %?%F%{= Bk}%:%{= wk}%? %n "
+#hardstatus alwayslastline
+#hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+
+# main options
+attrcolor b ".I"
+defbce "on"
+bufferfile "$HOME/.screen/exchange"
+hardcopydir "$HOME/.screen/hardcopy"
+sorendition dm
+hardstatus alwayslastline
+hardstatus string '%{= dI}%-Lw%{= dm}%50> %n*%f %t%{= dI}%+Lw%< %{= dI}%-=%D %m/%d/%y %C %A %1`%{-}'
+
+# use F7-F8 to turn on|off the status bar off at the bottom of the screen
+bindkey -k k7 hardstatus alwayslastline
+bindkey -k k8 hardstatus alwaysignore
+
+# Set left and right meta key mods ALT-,. 
+bindkey "^[," prev
+bindkey "^[." next
