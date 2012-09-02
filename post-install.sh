@@ -1,7 +1,7 @@
-#! /bin/bash
+#!/bin/bash
 
 echo Installing basic packages
-sudo apt-get install git-core \
+sudo apt-get install -y git-core \
                 build-essential \
                 vim \
                 vim-gtk \
@@ -28,7 +28,8 @@ sudo apt-get install git-core \
                 sqlite3 \
                 screen \
                 wget \
-                curl
+                curl \
+                keepassx
 
 
 echo Creating directory structure for code
