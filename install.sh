@@ -16,6 +16,6 @@ ln -s $DOTFILES/vim $HOME/.vim
 ln -s $DOTFILES/vimrc $HOME/.vimrc
 ln -s $DOTFILES/my.cnf $HOME/.my.cnf
 ln -s $DOTFILES/gitconfig $HOME/.gitconfig
-ln -s $DOTFILES/screnrc $HOME/.screenrc
+ln -s $DOTFILES/screenrc $HOME/.screenrc
 
 echo Done.
