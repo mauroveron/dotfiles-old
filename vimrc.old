@@ -1,0 +1,292 @@
+call pathogen#infect()
+call pathogen#helptags()
+
+syntax on
+set modeline
+
+if has("gui")
+    set guitablabel=%n\ %t\ %m
+    set showtabline=2
+endif
+
+if has("gui_running")
+  set go -=T "no toolbar
+  set go -=m "no menu
+  set go -=r "no scrollbars
+  "set background=dark
+  colorscheme fruity
+  "set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
+  "set guifont=Inconsolata\ Medium\ 11
+  set guifont=Droid\ Sans\ Mono\ 9
+  set colorcolumn=80
+else
+  set background=light
+  colorscheme default
+endif
+
+" MacVim
+if has("gui_macvim")
+    let Tlist_Ctags_Cmd = '/opt/local/bin/ctags'
+    set go-=T
+    set guifont=Inconsolata:h14
+
+    " set shorcuts for changing tabs
+    map <D-1> 1gt
+    map <D-2> 2gt
+    map <D-3> 3gt
+    map <D-4> 4gt
+    map <D-5> 5gt
+    map <D-6> 6gt
+    map <D-7> 7gt
+    map <D-8> 8gt
+    map <D-9> 9gt
+    map <D-0> :tablast<CR>
+
+    " export vim clipboard to osx
+    set clipboard=unnamed
+endif
+
+if has("cscope")
+    "set csprg=/usr/local/bin/cscope
+    set csto=0
+    set cst
+    set nocsverb
+    " add any database in current directory
+    if filereadable("cscope.out")
+        cs add cscope.out
+        " else add database pointed to by environment
+    elseif $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
+    endif
+    set csverb
+endif
+
+" Vim 7.3+ Highlight column 81
+if has("colorcolumn")
+    set colorcolumn=81
+endif
+
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-I> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+let mapleader=','
+" from vimcasts.org/e/14
+" edit file taking the path to the current active buffer into account.
+map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
+" mapeos para symfony
+map <leader>sf :tabe <C-R>=getcwd() . "/lib/form/doctrine/" <CR>
+map <leader>sb :tabe <C-R>=getcwd() . "/lib/form/doctrine/base/Base" <CR>
+map <leader>sm :tabe <C-R>=getcwd() . "/lib/model/doctrine/" <CR>
+
+" quick way to show / hide cursorcolumn
+map <leader>co :set cursorcolumn!<CR>
+
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+"nmap <leader>t :TlistToggle<CR>
+nmap <leader>ff :NERDTree<CR>
+" open NERDTree in the directory of the current file.
+nmap <leader>fe :NERDTree %:h<CR>
+
+nmap <leader>o :TlistToggle<CR>
+"
+"call JavascriptLint
+map <F5> :call JavascriptLint()<CR>
+map <silent> <F4> :BufExplorer<CR>
+
+" limit to 80 chars when typing
+"set textwidth=80
+
+" Completion: Show menu even when there's only one match
+set completeopt=menuone,preview
+
+" Allow backspacing over autoindent, line breaks and start of insert action
+set backspace=indent,eol,start
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬,trail:·
+
+"highlight current cursor line
+set cursorline
+set autoindent
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set noswapfile
+
+set pastetoggle=<F3>
+
+" allows to switch to another buffer even if the current one has unsaved
+" changes
+set hidden
+
+set foldmethod=indent
+set encoding=utf-8
+
+"show status line
+set statusline=%<%2*%f%h%1*%m%2*%r%h%w%y\ %*%{&ff}\ %=\ %{fugitive#statusline()}\ col:%c%V\ asc:%B\ pos:%o\ lin:%l\,%L\ %P
+set laststatus=2
+
+set title
+set nowrap
+set nu
+
+" search case-insensitive if search string is all lowercase, otherwise
+" search case-sensitive.
+" enable incremental search
+set ignorecase
+set smartcase
+set incsearch
+
+" highlight last search result
+set hls
+
+" set filename completion to match the longest common denominator, and then
+" list if TAB is pressed again
+set wildmode=longest,list
+
+" show matching braces
+set showmatch
+
+" Show current command
+set showcmd
+set shortmess=at
+
+" use TAB as %
+nnoremap <tab> %
+vnoremap <tab> %
+
+" quickly jump to the matching bracket when inserting
+set showmatch
+
+" search and replace globally by default.
+" If you wan't only the first match, just add the /g as usual
+set gdefault
+
+" Super fast grep. Use grep command, not vimgrep.
+set grepprg=zsh\ -c\ 'grep\ -nH\ $*'
+
+" clear highlighted results
+nnoremap <leader><space> :noh<cr>
+
+" Use Perl's regex on searches
+nnoremap / /\v
+vnoremap / /\v
+
+" show matching options above command line for command line completion
+set wildmenu
+
+" show 3 lines above and below the cursor when scrolling
+set scrolloff=3
+
+" vim 7.3: use relative numbers as line numbers
+set relativenumber
+
+" jj exits INSERT mode
+inoremap jj <ESC>
+
+" split windows {{{
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+" }}}
+
+" ignores when globbing
+set wildignore=*.o,*.obj,*.swp,*.bak,*.pyc,*~,build,cache,*/sites/default/files
+
+"
+set fdls=99
+
+filetype plugin indent on
+au FileType php set omnifunc=phpcomplete#CompletePHP
+
+" cscope mapping
+nmap <C-_>s :scs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>g :scs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>d :scs find d <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>c :scs find c <C-R>=expand("<cword>")<CR><CR>
+
+"loads cscope
+if has("cscope")
+  set csprg=cscope
+  set csto=0
+  set cst
+  set nocsverb
+  " add any database in current directory
+  if filereadable("cscope.out")
+      cs add cscope.out
+  " else add database pointed to by environment
+  elseif $CSCOPE_DB != ""
+      cs add $CSCOPE_DB
+  endif
+  set csverb
+
+  nmap <F11> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' -o -iname '*.php' > cscope.files<CR>
+    \:!cscope -b -i cscope.files -f cscope.out<CR>
+    \:cs reset<CR>
+endif
+
+" regenerate cscope file
+nmap <F11> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' -o -iname '*.php' > cscope.files<CR>
+  \:!cscope -b -i cscope.files -f cscope.out<CR>
+  \:cs reset<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Cope
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Do :help cope if you are unsure what cope is. It's super useful!
+map <leader>cc :botright cope<cr>
+map <leader>n :cn<cr>
+map <leader>p :cp<cr>
+
+" Close window.
+map <leader>q :q<cr>
+map <leader>d :bd<CR>
+" close all buffers
+map <leader>ca :1,300bd<CR>
+
+" super awesome. Maps - to : so I don't have to use SHIFT + . to get the
+" command prompt (:)
+nnoremap - :
+
+" For moving to the next editor line on wrapped lines.
+nnoremap j gj
+nnoremap k gk
+
+" use Q to format paragraph
+vmap Q gq
+nmap Q gqap
+
+" HTML Tidy, http://tidy.sourceforge.net/
+ " select xml text to format and hit ,x
+vmap ,x :!tidy -q -i -xml<CR>
+
+nmap <F2> :CommandTFlush<CR>
+
+" CoffeeScript
+au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
+au BufNewFile,BufReadPost *.coffee setl sts=2 ts=2 sw=2 expandtab
+
+" Fix for markdown files.
+au BufNewFile,BufReadPost *.md setl ft=markdown tw=80
+
+" This will adjust the quickfix window to the number of lines in it.
+" It's useful when showing only one or two complie errors so that the qf
+" doesn't occupy half of the screen.
+au FileType qf call AdjustWindowHeight(3, 10)
+function! AdjustWindowHeight(minheight, maxheight)
+  exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
+endfunction
