@@ -8,7 +8,6 @@ sudo apt-get install -y build-essential \
                 zsh \
                 chromium-browser \
                 ack-grep \
-                touchpad-indicator \
                 gimp \
                 synapse \
                 rednotebook \
@@ -28,7 +27,8 @@ sudo apt-get install -y build-essential \
                 screen \
                 wget \
                 curl \
-                keepassx
+                keepassx \
+                ttf-droid
 
 echo Creating directory structure for code
 mkdir -p code/mine
