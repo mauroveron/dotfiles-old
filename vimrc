@@ -30,6 +30,9 @@ let mapleader=','
 set modeline
 set noswapfile
 
+set statusline=%<%2*%f%h%1*%m%2*%r%h%w%y\ %*%{&ff}\ %=\ %{fugitive#statusline()}\ col:%c%V\ asc:%B\ pos:%o\ lin:%l\,%L\ %P
+set laststatus=2
+
 set pastetoggle=<F3>
 
 set hidden
@@ -54,6 +57,11 @@ set scrolloff=3
 
 set wildignore=*.o,*.obj,*.swp,*.bak,*.pyc,*~,build,cache,*/sites/default/files
 
+" Use Perl's regex on searches
+nnoremap / /\v
+vnoremap / /\v
+
+set nowrap "do not wrap by default
 " move to the next editor line for wrapped lines
 nnoremap j gj
 nnoremap k gk
@@ -99,7 +107,14 @@ map <leader>ca :1,300bd<cr>
 map <leader>f :NERDTree<cr>
 map <leader><space> :noh<cr>
 map <leader>l :set list!<cr>
-"map <leader>t :TagbarToggle<cr>
+map <leader>o :TagbarToggle<cr>
+
+" from vimcasts.org/e/14
+" edit file taking the path to the current active buffer into account.
+map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 " }}}
 
 " other mappings {{{
