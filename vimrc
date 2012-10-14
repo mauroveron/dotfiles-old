@@ -85,6 +85,7 @@ set title " show filename in titlebar / terminal
 
 " general editing tweaks {{{
 set backspace=indent,eol,start        " allow backspacing over autoindent, linke breaks and start of insert
+set nowrap
 
 set autoindent
 
