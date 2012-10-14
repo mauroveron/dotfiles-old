@@ -73,7 +73,7 @@ au BufNewFile,BufReadPost *.md setl ft=markdown tw=80
 
 " look and feel {{{
 try
-  colorscheme fruit
+  colorscheme solarized
 catch
   colorscheme default
 endtry
