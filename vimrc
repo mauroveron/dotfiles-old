@@ -9,7 +9,7 @@ if has("gui_running")
   set go -=m  " no menu
   set go -=r  " no scrollbars
   try
-    set guifont=Droid\ Sans\ Mono
+    set guifont=Droid\ Sans\ Mono\ 9
   catch
   endtry
 
@@ -72,11 +72,13 @@ au BufNewFile,BufReadPost *.md setl ft=markdown tw=80
 "}}}
 
 " look and feel {{{
-try
-  colorscheme solarized
-catch
-  colorscheme default
-endtry
+if has("gui_running")
+  try
+    colorscheme molokai
+  catch
+    colorscheme default
+  endtry
+endif
 set listchars=tab:▸\ ,eol:¬,trail:·
 set cursorline
 set nu
