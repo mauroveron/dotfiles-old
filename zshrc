@@ -34,3 +34,11 @@ plugins=(git mveron bundler rbenv)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+VEW="/usr/local/bin/virtualenvwrapper.sh"
+if [ -f  $VEW ] ; then
+  . $VEW
+fi 
