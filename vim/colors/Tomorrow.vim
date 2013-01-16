@@ -20,6 +20,11 @@ set background=light
 hi clear
 syntax reset
 
+" MSV: highlight todo tags
+hi tTODO  gui=bold guifg=#ff0000
+hi tDOING gui=bold guifg=#ffaa00
+hi tDONE  gui=bold guifg=#00aa00
+
 let g:colors_name = "Tomorrow"
 
 if has("gui_running") || &t_Co == 88 || &t_Co == 256

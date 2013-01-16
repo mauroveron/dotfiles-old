@@ -11,6 +11,11 @@ endif
 set t_Co=256
 let g:colors_name = "fruit"
 
+" MSV: highlight todo tags
+hi tTODO  gui=bold guifg=#ff0000
+hi tDOING gui=bold guifg=#ffaa00
+hi tDONE  gui=bold guifg=#00aa00
+
 hi IncSearch guifg=#404040 guibg=#40ffff guisp=#40ffff gui=NONE ctermfg=238 ctermbg=87 cterm=NONE
 hi WildMenu guifg=#f8f8f8 guibg=#ff4080 guisp=#ff4080 gui=NONE ctermfg=15 ctermbg=13 cterm=NONE
 "hi SignColumn -- no settings --

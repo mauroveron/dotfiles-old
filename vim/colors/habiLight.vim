@@ -18,6 +18,11 @@ if exists("syntax_on")
 endif
 let g:colors_name = "habiLight"
 
+" MSV: highlight todo tags
+hi tTODO  gui=bold guifg=#ff0000
+hi tDOING gui=bold guifg=#ffaa00
+hi tDONE  gui=bold guifg=#00aa00
+
 " Normal {{{1
 hi Normal ctermfg=black ctermbg=NONE guifg=black guibg=#F9F5F9
 

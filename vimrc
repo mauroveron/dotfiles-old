@@ -130,4 +130,6 @@ nmap <F2> :CommandTFlush<CR>
 
 "autocmd vimenter * if !argc() | NERDTree | endif
 
+autocmd BufNewFile,BufRead,BufEnter TODO.md setf todo
+
 " vim:fdm=marker:
