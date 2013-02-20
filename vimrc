@@ -37,7 +37,7 @@ set pastetoggle=<F3>
 
 set hidden
 
-set foldmethod=syntax
+set foldmethod=marker
 set foldlevel=99
 set encoding=utf-8
 
