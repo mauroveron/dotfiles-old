@@ -127,6 +127,8 @@ vmap Q gq
 nmap Q gqap
 
 nmap <F2> :CommandTFlush<CR>
+nmap <F4> :Gst<CR>
+nmap <F5> :Gdiff<CR>
 " }}}
 
 "autocmd vimenter * if !argc() | NERDTree | endif
