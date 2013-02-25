@@ -42,3 +42,8 @@ VEW="/usr/local/bin/virtualenvwrapper.sh"
 if [ -f  $VEW ] ; then
   . $VEW
 fi 
+
+meldiff()
+{
+  git difftool  --tool=meld
+}
