@@ -74,7 +74,7 @@ au BufNewFile,BufReadPost *.md setl ft=markdown tw=80
 " look and feel {{{
 if has("gui_running")
   try
-    colorscheme solarized
+    colorscheme gravity
     set background=light
   catch
     colorscheme default
