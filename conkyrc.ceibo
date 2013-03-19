@@ -12,8 +12,9 @@ update_interval 2.0
 
 own_window yes
 own_window_class Conky
-own_window_type desktop
+own_window_type root
 own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 
 border_margin 4
 border_width 1
