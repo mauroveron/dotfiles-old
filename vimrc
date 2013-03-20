@@ -9,7 +9,7 @@ if has("gui_running")
   set go -=m  " no menu
   set go -=r  " no scrollbars
   try
-    set guifont=Droid\ Sans\ Mono\ 9
+    set guifont=Droid\ Sans\ Mono\ 10
   catch
   endtry
 
