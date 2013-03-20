@@ -47,3 +47,8 @@ meldiff()
 {
   git difftool  --tool=meld
 }
+
+pgrep()
+{
+  ps aux | grep -v grep | grep -i $1
+}
