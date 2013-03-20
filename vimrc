@@ -55,7 +55,7 @@ set shortmess=at
 
 set scrolloff=3
 
-set wildignore=*.o,*.obj,*.swp,*.bak,*.pyc,*~,build,cache,*/sites/default/files
+set wildignore=*.o,*.obj,*.swp,*.bak,*.pyc,*~,build,cache,*/sites/default/files,tmp
 
 " Use Perl's regex on searches
 nnoremap / /\v
