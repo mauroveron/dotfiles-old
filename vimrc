@@ -1,6 +1,9 @@
 call pathogen#infect()
 syntax on
 
+" This fixes small delay on terminal when using capital O
+set ttimeoutlen=50
+
 " gui tweaks {{{
 if has("gui_running")
   set guitablabel=%n\ %t\ %m
