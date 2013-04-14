@@ -12,7 +12,7 @@ if has("gui_running")
   set go -=m  " no menu
   set go -=r  " no scrollbars
   try
-    set guifont=Droid\ Sans\ Mono\ 10
+    set guifont=Droid\ Sans\ Mono\ 9
   catch
   endtry
 
@@ -82,6 +82,11 @@ if has("gui_running")
   catch
     colorscheme default
   endtry
+else
+  let g:solarized_termcolors=256
+  set t_Co=256
+  colorscheme solarized
+  hi CursorLine cterm=inverse
 endif
 set listchars=tab:▸\ ,eol:¬,trail:·
 set cursorline
@@ -137,5 +142,77 @@ nmap <F5> :Gdiff<CR>
 "autocmd vimenter * if !argc() | NERDTree | endif
 
 autocmd BufNewFile,BufRead,BufEnter TODO.md setf todo
+
+" Resize splits when the window is resized
+au VimResized * :wincmd =
+
+" Cursorline {{{
+" Only show cursorline in the current window and in normal mode.
+
+augroup cline
+    au!
+    au WinLeave,InsertEnter * set nocursorline
+    au WinEnter,InsertLeave * set cursorline
+augroup END
+
+" }}}
+
+" Don't try to highlight lines longer than 800 characters.
+set synmaxcol=800
+
+" Trailing whitespace {{{
+" Only shown when not in insert mode so I don't go insane.
+
+augroup trailing
+  au!
+  au InsertEnter * :set listchars-=trail:⌴
+augroup END
+" }}}
+
+" Fuck you, help key.
+noremap  <F1> <nop>
+inoremap <F1> <nop>
+
+" Clean trailing whitespace
+nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
+
+" Marks and Quotes
+noremap ' `
+
+" Select (charwise) the contents of the current line, excluding indentation.
+" Great for pasting Python lines into REPLs.
+nnoremap vv ^vg_
+
+" Sudo to write
+cnoremap w!! w !sudo tee % >/dev/null
+
+" Don't move on *
+nnoremap * *<c-o>
+
+" Easy buffer navigation
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+noremap <leader>v <C-w>v
+noremap <leader>t :tabnew<CR>
+
+" Keep search matches in the middle of the window.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Same when jumping around
+nnoremap g; g;zz
+nnoremap g, g,zz
+nnoremap <c-o> <c-o>zz
+
+" Easier to type, and I never use the default behavior.
+noremap H ^
+noremap L $
+vnoremap L g_
+
+set lazyredraw
+set ttyfast
 
 " vim:fdm=marker:

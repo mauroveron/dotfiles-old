@@ -29,7 +29,7 @@ ZSH_THEME="mveron"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git mveron bundler rbenv)
+plugins=(git mveron bundler rbenv virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -52,3 +52,5 @@ pgrep()
 {
   ps aux | grep -v grep | grep -i $1
 }
+
+alias tmux="TERM=screen-256color tmux"
