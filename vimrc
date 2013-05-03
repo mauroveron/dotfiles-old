@@ -215,4 +215,8 @@ vnoremap L g_
 set lazyredraw
 set ttyfast
 
+" More natural split behavior
+set splitbelow
+set splitright
+
 " vim:fdm=marker:
