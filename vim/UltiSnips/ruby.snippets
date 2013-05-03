@@ -1,0 +1,10 @@
+snippet seqmig "Sequel migration" b
+Sequel.migration do
+  up do
+    $1
+  end
+  down do
+    $2
+  end
+end
+endsnippet
