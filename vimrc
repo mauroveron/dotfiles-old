@@ -85,8 +85,9 @@ if has("gui_running")
 else
   let g:solarized_termcolors=256
   set t_Co=256
+  set background=dark
   colorscheme solarized
-  hi CursorLine cterm=inverse
+  hi CursorLine cterm=standout
 endif
 set listchars=tab:▸\ ,eol:¬,trail:·
 set cursorline
