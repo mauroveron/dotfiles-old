@@ -207,6 +207,9 @@ nnoremap g; g;zz
 nnoremap g, g,zz
 nnoremap <c-o> <c-o>zz
 
+" Re-select last pasted text
+nnoremap gp `[v`]
+
 " Easier to type, and I never use the default behavior.
 noremap H ^
 noremap L $
