@@ -21,6 +21,7 @@
    st = status -sb
    unstage = reset HEAD --
    l = log --decorate --stat --graph --pretty=format:'%C(yellow)%h%Creset (%ar - %Cred%an%Creset), %s%C(blue)%d%Creset%n'
+  outgoing = log @{u}.. --oneline
 	switch = !legit switch \"$@\"
 	branches = !legit branches
 	sprout = !legit sprout \"$@\"
