@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+file="~/.gitshots/#{Time.now.to_i}.png"
+dir ="~/.gitshots"
+repo=File.basename(File.expand_path("../../../", __FILE__))
+unless File.directory?(File.expand_path("../../rebase-merge", __FILE__))
+  puts "Taking capture..." 
+  cmds = [
+    "streamer -s 640x480 -t 3 -r 0.3 -q -o #{dir}/streamer0.ppm",
+    "convert #{dir}/streamer2.ppm #{dir}/$(date +%Y%m%d-%H%M%S)-#{repo}.png",
+    "rm #{dir}/streamer*.ppm &",
+  ]
+  system cmds.join(' && ')
+end
+exit 0
