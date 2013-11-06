@@ -1,6 +1,13 @@
 call pathogen#infect()
 syntax on
 
+
+" Configuration variables {{{
+
+" make ctrlp list files from the current directory
+"let g:ctrlp_working_path_mode = 'a'
+" }}}
+
 " This fixes small delay on terminal when using capital O
 set ttimeoutlen=50
 
@@ -60,6 +67,8 @@ set scrolloff=3
 
 set wildignore=*.o,*.obj,*.swp,*.bak,*.pyc,*~,build,cache,*/sites/default/files,tmp
 
+set clipboard=autoselectplus
+
 " Use Perl's regex on searches
 nnoremap / /\v
 vnoremap / /\v
@@ -85,13 +94,14 @@ if has("gui_running")
 else
   let g:solarized_termcolors=256
   set t_Co=256
-  set background=dark
+  set background=light
   colorscheme solarized
   hi CursorLine cterm=standout
 endif
 set listchars=tab:▸\ ,eol:¬,trail:·
 set cursorline
-set nu
+"set nonu
+map <leader>b :set nu!<CR>
 set title " show filename in titlebar / terminal
 " }}}
 
@@ -121,6 +131,9 @@ map <leader>f :NERDTree<cr>
 map <leader><space> :noh<cr>
 map <leader>l :set list!<cr>
 map <leader>o :TagbarToggle<cr>
+
+map <leader>s :%:<C-R><C-W>:
+vmap <leader>s :%s:<C-R><C-W>:
 
 " from vimcasts.org/e/14
 " edit file taking the path to the current active buffer into account.
@@ -188,7 +201,7 @@ nnoremap vv ^vg_
 cnoremap w!! w !sudo tee % >/dev/null
 
 " Don't move on *
-nnoremap * *<c-o>
+"nnoremap * *<c-o>
 
 " Easy buffer navigation
 noremap <C-h> <C-w>h
@@ -220,7 +233,7 @@ set lazyredraw
 set ttyfast
 
 " More natural split behavior
-set splitbelow
+"set splitbelow
 set splitright
 
 if exists('$TMUX')
@@ -247,5 +260,11 @@ else
   map <C-k> <C-w>k
   map <C-l> <C-w>l
 endif
+
+" Tabular.vim leader mappings
+nmap <leader>a= :Tabularize /=<CR>
+vmap <leader>a= :Tabularize /=<CR>
+nmap <leader>a: :Tabularize /:\zs<CR>
+vmap <leader>a: :Tabularize /:\zs<CR>
 
 " vim:fdm=marker:
