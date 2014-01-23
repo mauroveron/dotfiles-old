@@ -9,3 +9,26 @@ endsnippet
 snippet phpt "inline php tag"
 <?php $1 ?>
 endsnippet
+
+snippet bul "tracing bullet"
+echo "==================\n";
+die("$1\n");
+endsnippet
+
+snippet ate "assert attribute equals"
+$this->assertObjectHasAttribute('$2', $${1:json});
+$this->assertEquals($3, $$1->$2);
+endsnippet
+
+snippet att "assert attribute is of type"
+$this->assertObjectHasAttribute('${2:attribute}', $${1:object});
+$this->assertThat($$1->$2, $this->isType('${3:string}'));
+endsnippet
+
+snippet atn "assert attribute is of type or null"
+$this->assertObjectHasAttribute('${2:attribute}', $${1:object});
+$this->assertThat($$1->$2, $this->logicalOr(
+    $this->isType('${3:string}'),
+    $this->isNull()
+));
+endsnippet
