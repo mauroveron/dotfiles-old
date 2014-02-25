@@ -29,19 +29,14 @@ ZSH_THEME="mveron"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git mveron bundler rbenv virtualenvwrapper)
+plugins=(git mveron bundler rbenv)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-VEW="/usr/local/bin/virtualenvwrapper.sh"
-if [ -f  $VEW ] ; then
-  . $VEW
-fi 
+export PATH="$HOME/bin:$PATH"
 
 meldiff()
 {
@@ -54,3 +49,9 @@ pgrep()
 }
 
 alias tmux="TERM=screen-256color tmux"
+
+alias vmls='VBoxManage list vms'
+alias vmlsr='VBoxManage list runningvms'
+export PATH="$HOME/bin/go/bin:$PATH"
+export GOROOT=$HOME/bin/go
+. ~/bin/tmux_helpers.sh
