@@ -35,3 +35,5 @@
 	email = mauroveron@gmail.com
 [github]
 	user = mauroveron
+[core]
+	editor = /usr/bin/vim
