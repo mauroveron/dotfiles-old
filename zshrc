@@ -50,8 +50,14 @@ pgrep()
 
 alias tmux="TERM=screen-256color tmux"
 
-alias vmls='VBoxManage list vms'
-alias vmlsr='VBoxManage list runningvms'
+alias :vst='vagrant status'
+alias :vs='vagrant stop'
+alias :vd='vagrant destroy'
+alias :vblr='VBoxManage list runningvms'
+alias :vbls='VBoxManage list vms'
+
 export PATH="$HOME/bin/go/bin:$PATH"
 export GOROOT=$HOME/bin/go
 . ~/bin/tmux_helpers.sh
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
