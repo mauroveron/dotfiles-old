@@ -90,7 +90,9 @@ else
   let g:solarized_termcolors=256
   set t_Co=256
   set background=light
-  colorscheme Tomorrow
+
+  let g:lucius_contrast='light'
+  colorscheme lucius
   hi CursorLine cterm=standout
 endif
 set listchars=tab:▸\ ,eol:¬,trail:·
