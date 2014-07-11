@@ -81,7 +81,7 @@ au BufNewFile,BufReadPost *.md setl ft=markdown tw=80
 " look and feel {{{
 if has("gui_running")
   try
-    colorscheme gravity
+    colorscheme solarized
     set background=light
   catch
     colorscheme default
@@ -92,7 +92,7 @@ else
   set background=light
 
   let g:lucius_contrast='light'
-  colorscheme lucius
+  colorscheme solarized
   hi CursorLine cterm=standout
 endif
 set listchars=tab:▸\ ,eol:¬,trail:·
