@@ -37,3 +37,5 @@
 	user = mauroveron
 [core]
 	editor = /usr/bin/vim
+[push]
+	default = simple
