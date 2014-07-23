@@ -15,12 +15,15 @@
    untracked = cyan
 
 [alias]
-   co = checkout
-   br = branch
-   ci = commit
-   st = status -sb
-   unstage = reset HEAD --
-   l = log --decorate --stat --graph --pretty=format:'%C(yellow)%h%Creset (%ar - %Cred%an%Creset), %s%C(blue)%d%Creset%n'
+  co = checkout
+  br = branch
+  ci = commit
+  st = status -sb
+  unstage = reset HEAD --
+  l = log --decorate --stat --graph --pretty=format:'%C(yellow)%h%Creset (%ar - %Cred%an%Creset), %s%C(blue)%d%Creset%n'
+  lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  standup = !git lg --since yesterday --author `git config user.email`
+  pull = pull --rebase
   outgoing = log @{u}.. --oneline
 	switch = !legit switch \"$@\"
 	branches = !legit branches
