@@ -28,11 +28,33 @@ endsnippet
 snippet atn "assert attribute is of type or null"
 $this->assertObjectHasAttribute('${2:attribute}', $${1:object});
 $this->assertThat($$1->$2, $this->logicalOr(
-    $this->isType('${3:string}'),
-    $this->isNull()
+	$this->isType('${3:string}'),
+	$this->isNull()
 ));
 endsnippet
 
+
 snippet dv "die(var_dump())"
 die(var_dump($1));
+endsnippet
+
+snippet tdv "die(var_dump())"
+echo "======== $1\n";
+die(var_dump($2));
+endsnippet
+
+snippet vv "var_dump()"
+var_dump($1);
+endsnippet
+
+snippet tvv "var_dump()"
+echo "======== $1\n";
+var_dump($2);
+endsnippet
+
+snippet fun "function"
+${1:public} function ${2:myFunction}($3)
+{
+	${4:// TODO: insert code}
+}
 endsnippet
