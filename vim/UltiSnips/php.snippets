@@ -58,3 +58,11 @@ ${1:public} function ${2:myFunction}($3)
 	${4:// TODO: insert code}
 }
 endsnippet
+
+snippet try "try catch block"
+try \{
+	${0:${VISUAL:\/\/ add code here}}
+\} catch (${2:RuntimeException} $ex) \{
+	${3:Log::error($ex);}
+\}
+endsnippet
